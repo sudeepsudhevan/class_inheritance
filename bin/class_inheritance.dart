@@ -1,25 +1,20 @@
-abstract class Animal {
+mixin class Animal1 {
+  int age = 2;
   void sayHello() {
-    print("Animal say Hello");
+    print('mixin1 hello');
   }
 }
 
-class Human extends Animal {
-  void sayName() {
-    print("say name");
-  }
-
-  @override
+mixin class Animal2 {
+  int age = 22;
   void sayHello() {
-    print("Human say Hello");
-    super.sayHello(); // call parent method
+    print('mixin2 hello');
   }
 }
+
+class Human with Animal1, Animal2 {}
 
 void main() {
-  //final animal = Animal();
-  final human = Human();
+  Human human = Human();
   human.sayHello();
-  human.sayName();
-  //animal.sayHello();
 }
